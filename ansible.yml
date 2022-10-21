@@ -18,11 +18,11 @@
      shell: docker image rmi mongo
    - name: remove docker image
      shell: docker image rmi mongo-express
-   - name: Delete docker-composefile.yaml in webserver
+   - name: delete docker-composefile.yaml in webserver
      file: 
      path: /tmp/docker-composefile.yaml
      state: absent
-   - name: Copy docker-composefile.yaml from ansible to webserver
+   - name: copy docker-composefile.yaml from ansible to webserver
      copy:
        src: /opt/userinfo/docker-composefile.yaml
        dest: /tmp/
