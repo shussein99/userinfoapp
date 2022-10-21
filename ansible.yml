@@ -1,4 +1,4 @@
 - hosts: all
   tasks:
    - name: create new container
-     shell: docker-compose -f /opt/userinfo/docker-composefile.yaml up -d
+     shell: docker-compose -f docker-composefile.yaml up -d
