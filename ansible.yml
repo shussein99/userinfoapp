@@ -20,8 +20,8 @@
      shell: docker image rmi mongo-express
    - name: delete docker-composefile.yaml in webserver
      file: 
-     path: /tmp/docker-composefile.yaml
-     state: absent
+       path: /tmp/docker-composefile.yaml
+       state: absent
    - name: copy docker-composefile.yaml from ansible to webserver
      copy:
        src: /opt/userinfo/docker-composefile.yaml
