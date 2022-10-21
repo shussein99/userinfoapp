@@ -1,4 +1,30 @@
 - hosts: all
   tasks:
-   - name: create new container
+   - name: stop container
+     shell: docker container stop tmp-my-app-1
+   - name: stop container
+     shell: docker container stop tmp-mongo-express-1
+   - name: stop container
+     shell: docker container stop tmp-mongodb-1
+   - name: remove container
+     shell: docker container rm tmp-my-app-1
+   - name: remove container
+     shell: docker container rm tmp-mongo-express-1
+   - name: remove container
+     shell: docker container tmp-mongodb-1
+   - name: remove docker image
+     shell: docker image rmi shussein99/userinfoapp
+   - name: remove docker image
+     shell: docker image rmi mongo
+   - name: remove docker image
+     shell: docker image rmi mongo-express
+   - name: Delete docker-composefile.yaml in webserver
+     file: 
+     path: /tmp/docker-composefile.yaml
+     state: absent
+   - name: Copy docker-composefile.yaml from ansible to webserver
+     copy:
+       src: /opt/userinfo/docker-composefile.yaml
+       dest: /tmp/
+   - name: Run Dockercompose
      shell: docker-compose -f docker-composefile.yaml up -d
