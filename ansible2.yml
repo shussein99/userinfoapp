@@ -1,0 +1,19 @@
+- hosts: all
+  tasks:
+   - name: remove docker image
+     shell: docker image rmi shussein99/userinfoapp
+   - name: remove docker image
+     shell: docker image rmi mongo
+   - name: remove docker image
+     shell: docker image rmi mongo-express
+   - name: delete docker-composefile.yaml in webserver
+     file:
+       path: /tmp/docker-composefile.yaml
+       state: absent
+   - name: copy docker-composefile.yaml from ansible to webserver
+     copy:
+       src: /opt/userinfo/docker-composefile.yaml
+       dest: /tmp/
+   - name: Run Dockercompose
+     shell: docker-compose -f docker-composefile.yaml up -d
+
