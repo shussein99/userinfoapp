@@ -13,11 +13,11 @@
    - name: remove container
      shell: docker container rm tmp-mongodb-1
    - name: remove docker image
-     shell: docker image rmi shussein99/userinfoapp
+     shell: docker image rmi -f shussein99/userinfoapp
    - name: remove docker image
-     shell: docker image rmi mongo
+     shell: docker image rmi -f mongo
    - name: remove docker image
-     shell: docker image rmi mongo-express
+     shell: docker image rmi -f mongo-express
    - name: delete docker-composefile.yaml in webserver
      file: 
        path: /tmp/docker-composefile.yaml
