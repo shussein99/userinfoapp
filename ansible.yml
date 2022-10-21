@@ -1,10 +1,4 @@
 - hosts: all
   tasks:
-   - name: stop container
-     shell: docker container stop photogenicapp
-   - name: remove container
-     shell: docker container rm photogenicapp
-   - name: remove docker image
-     shell: docker image rmi shussein99/photogenic
    - name: create new container
-     shell: docker container run -itd --name photogenicapp -p 9000:80 shussein99/photogenic
+     shell: docker-compose -f /opt/userinfo/docker-composefile.yaml up -d
